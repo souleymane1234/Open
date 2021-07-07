@@ -1,37 +1,12 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
+// App.js
 
-import React from 'react';
-import type {Node} from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
+import React from 'react'
 import Search from './components/Search'
 
 export default class App extends React.Component {
   render() {
     return (
-      <SafeAreaView style={styles.container}>
-          <Search/>
-
-      </SafeAreaView>
-    );
+      <Search/>
+    )
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-});
