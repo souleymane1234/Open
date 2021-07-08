@@ -1,15 +1,34 @@
 // Navigation/Navigation.js
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
-import {createAppContainer} from 'react-navigation'
-import Search from '../components/Search'
+import React from 'react';
+import {NavigationContainer} from '@react-navigation/native';
+import {createStackNavigator} from '@react-navigation/stack';
 
-const SearchStackNavigator = createStackNavigator({
-  Search: { // Ici j'ai appelé la vue "Search" mais on peut mettre ce que l'on veut. C'est le nom qu'on utilisera pour appeler cette vue
-    screen: Search,
-    navigationOptions: {
-      title: 'Rechercher'
-    }
-  }
-})
-export default createAppContainer(SearchStackNavigator)
+import Search from '../components/Search'
+import FilmDetail from '../components/FilmDetail'
+
+const Stack = createStackNavigator();
+
+const Navigation = props => {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Search">
+        <Stack.Screen
+          name={'Recherche'}
+          component={Search}
+          options={{
+            headerShown: true,
+          }}
+        />        
+        <Stack.Screen
+        name={'FilmDetail'}
+        component={FilmDetail}
+        options={{
+          headerShown: true,
+        }}
+      />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+};
+
+export default Navigation;
